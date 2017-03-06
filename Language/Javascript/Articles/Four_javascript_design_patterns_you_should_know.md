@@ -171,3 +171,65 @@ TeslaModelS.prototype = {
     }
 }
 ```
+
+## Revealing Prototype Pattern
+
+*Revealing Prototype Pattern*은 객체 리터럴을 반환하기 때문에 public 및 private 멤버를 캡슐화한다.
+
+```javascript
+var TeslaModelS = function() {
+	this.numWheels = 4;
+    this.manufacturer = 'Tesla';
+    this.make = 'Model S';
+}
+
+TeslaModelS.prototype = function() {
+	var go = function() {
+    	// Rotate wheels
+    };
+    
+    var stop = function() {
+    	// Apply brake pads
+    };
+    
+    return {
+    	pressBrakePedal: stop, 
+        pressGasPedal: go
+    }
+}();
+```
+
+`go` 함수와 `stop` 함수는 반환된 객체의 스코프에서 벗어나 있기 때문에 직접 접근할 수 없도록 제한되어 있다. 
+자바스크립트는 자체적으로 프로토타입 방식 상속을 지원하기 때문에 기본 기능을 재작상할 필요가 없다.
+
+## Observer Design Pattern
+
+어플리케이션에서 한 부분이 바뀌는 경우, 어플리케이션의 다른 부분들이 갱신되어야 하는 경우가 많다.
+AngularJS에서는 `$scope` 객체가 갱신되면 갱신되었음을 알리는 이벤트가 다른 컴포넌트들에게 고지된다.
+Observer Pattern은 한 객체가 변경되었을 때에 그에 의존적인 객체들에게 변경되었음을 알리도록 구성된 패턴이다.
+
+Observer Pattern의 다른 주요한 예는 바로 **Model View Controller 아키텍쳐**이다.
+MVC 아키텍처에서는 Model이 갱신된 경우 View를 변경한다.
+이 경우 Model과 View가 분리되어 코드상에서 종속성이 감소한다.
+
+![Observer Design Pattern on WIKIPEDIA](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Observer.svg/1000px-Observer.svg.png)
+
+위의 UML 다이어그램에서 볼 수 있듯이, `subject`, `observer`, `concrete` 오브젝트가 필요하다.
+`subject`는 변경점들을 고지하기 위해 실질적인 observer 객체를 참조하고 있다.
+`observer` 객체는 추상 클래스로써, `notify` 메서드를 구현하여 실질 observer 객체를 구현한다.
+
+AngularJS의 이벤트 관리자를 통해 Observer Pattern의 구현을 확인할 수 있다.
+
+```javascript
+// Controller 1
+$scope.$on('nameChanged', function(event, args) {
+	$scope.name = args.name;
+});
+
+// Controller 2
+$scope.userNameChanged = function(name) {
+	$scope.$emit('nameChanged', {name: name});
+}
+```
+
+
