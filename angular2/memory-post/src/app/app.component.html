@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1 class="title">{{title}}</h1>
+
+<div>
+  <ul class="memories">
+    <li *ngFor='let memory of memories' (click)='onSelect(memory)'>
+      <span class="badge">{{memory.id}}</span>
+      <div *ngIf='isName[memory.id]; then nameBlock else meaningBlock'></div>
+      <ng-template #nameBlock>{{memory.name}}</ng-template>
+      <ng-template #meaningBlock>{{memory.meaning}}</ng-template>
+      <span class="weight">{{memory.weight}}</span>
+    </li>
+  </ul>
+
+</div>
+
+
