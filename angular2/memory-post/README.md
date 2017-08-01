@@ -12,13 +12,14 @@
 
 ### 0.0.2 (2017. 8. 1)
 
-[Angular4에 node.js 적용](https://scotch.io/tutorials/mean-app-with-angular-2-and-the-angular-cli)
-
+- [Angular4에 node.js 적용](https://scotch.io/tutorials/mean-app-with-angular-2-and-the-angular-cli)
 아래 명령을 실행하여 dist에 빌드된 어플리케이션을 실행할 수 있다.
 
 ```
 ng build && node server.js
 ``` 
+
+- heroku 에 [memory-post](https://memory-post.herokuapp.com) 업로드 
 
 ### 0.0.1 
 
