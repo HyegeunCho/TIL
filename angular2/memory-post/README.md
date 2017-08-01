@@ -1,28 +1,32 @@
-# MemoryPost
+# Memory-Post
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.0.
+포스트잇 기반의 암기장 어플리케이션
 
-## Development server
+## Tech stack
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- [Angular4](https://angular.io)
+- node.js
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+## Update
 
-## Build
+### 0.0.2 (2017. 8. 1)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+[Angular4에 node.js 적용](https://scotch.io/tutorials/mean-app-with-angular-2-and-the-angular-cli)
 
-## Running unit tests
+아래 명령을 실행하여 dist에 빌드된 어플리케이션을 실행할 수 있다.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+ng build && node server.js
+``` 
 
-## Running end-to-end tests
+### 0.0.1 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+[Angular4 튜토리얼](https://angular.io/tutorial) 기반 암기장 기본 기능 구현
 
-## Further help
+- DataProvider로 부터 암기 목록 획득
+- 클릭으로 암기요소의 앞/뒤 전환
+- 버튼을 통한 암기요소 간 전환
+- 버튼을 통한 암기요소의 가중치 부여
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
