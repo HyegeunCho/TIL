@@ -1,8 +1,8 @@
 export class Memory {
 	id: number;
-	nameType: number;
-	name: string;
-	meaningType: number;
-	meaning: string;
+	frontType: number;
+	front: string;
+	backType: number;
+	back: string;
 	weight: number;
 }
