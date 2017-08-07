@@ -13,19 +13,24 @@
   </ul>
 </div-->
 
-<div *ngIf='currentMemory' class='memory'>
-  <span class='badge' (click)='onSelect()'>{{currentMemory.id}}</span>
-  <div *ngIf='currentIsName; then nameBlock else meaningBlock'></div>
-  <ng-template #nameBlock>{{currentMemory.name}}</ng-template>
-  <ng-template #meaningBlock>{{currentMemory.meaning}}</ng-template>
+<div *ngIf='currentMemory' class='memoryContainer'>
+  <span class='badge'>{{currentMemory.id}}</span>
+  <div class='memory' (click)='onFlip()' [@flipState]="currentState"
+    (@flipState.done)="onFlipComplete($event)">
+    <div class='memory_side memory_front'>{{currentMemory.front}}</div>
+    <div class='memory_side memory_back'>{{currentMemory.back}}</div>
+  </div>
+
+  <button class='previous' (click)='onPrevious()'>Previous</button>
   <div class='weight'>
     <span class='minus' (click)='onWeightMinus()'>-</span>
     <span class='value'>{{currentMemory.weight}}</span>
     <span class='plus' (click)='onWeightPlus()'>+</span>
   </div>
+  <button class='next' (click)='onNext()'>Next</button>
 </div>
-<button class='previous' (click)='onPrevious()'>Previous</button>
-<button class='next' (click)='onNext()'>Next</button>
+
+
   
 
 
