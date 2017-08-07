@@ -20,14 +20,15 @@
     <div class='memory_side memory_front'>{{currentMemory.front}}</div>
     <div class='memory_side memory_back'>{{currentMemory.back}}</div>
   </div>
-
-  <button class='previous' (click)='onPrevious()'>Previous</button>
-  <div class='weight'>
-    <span class='minus' (click)='onWeightMinus()'>-</span>
-    <span class='value'>{{currentMemory.weight}}</span>
-    <span class='plus' (click)='onWeightPlus()'>+</span>
+  <div class='footer'>
+    <button class='previous' (click)='onPrevious()'>Previous</button>
+    <div class='weight'>
+      <span class='minus' (click)='onWeightMinus()'>-</span>
+      <span class='value'>{{currentMemory.weight}}</span>
+      <span class='plus' (click)='onWeightPlus()'>+</span>
+    </div>
+    <button class='next' (click)='onNext()'>Next</button>
   </div>
-  <button class='next' (click)='onNext()'>Next</button>
 </div>
 
 

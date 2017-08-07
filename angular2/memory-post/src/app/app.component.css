@@ -140,6 +140,11 @@ nav a.active {
 	background-color: #EEE;
 }
 
+.memoryContainer .footer {
+	position: relative;
+	top: 30px;
+}
+
 .memoryContainer .previous {
 	position: relative;
 }
