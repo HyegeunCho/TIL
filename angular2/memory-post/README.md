@@ -10,6 +10,11 @@
 
 ## Update
 
+### 0.0.4 (2017. 8. 8)
+
+- 암기장의 view를 카드 형식으로 변경 
+- 카드 Flip 트랜지션 추가 
+
 ### 0.0.2 (2017. 8. 1)
 
 - [Angular4에 node.js 적용](https://scotch.io/tutorials/mean-app-with-angular-2-and-the-angular-cli)
