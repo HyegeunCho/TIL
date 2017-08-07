@@ -90,75 +90,97 @@ nav a.active {
 }
 
 
-.memory {
-	margin: 0 0 2em 0;
-	list-style-type: none;
-	padding: 0;
-	width: 30em;
-	cursor: pointer;
-	position: relative;
-	left: 0;
-	background-color: #EEE;
-	margin: .5em;
-	padding: .3em;
-	height: 1.6em;
-	border-radius: 4px;
+.memoryContainer {
+	-webkit-perspective: 1000px;
+	perspective: 1000px;
+	
 }
 
-.memory .text {
-	position: relative;
-	top: -3px;
-}
-
-.memory .badge {
+.memoryContainer .badge {
+	width: 300px;
+	height: 10px;
+	padding-top: 3px;
+	padding-bottom: 5px;
 	display: inline-block;
 	font-size: small;
 	color: white;
-	padding: 0.8em 0.7em 0 0.7em;
 	background-color: #607D8B;
-	line-height: 1em;
-	position: relative;
-	left: -1px;
-	top: -4px;
-	height: 1.8em;
-	margin-right: .8em;
-	border-radius: 4px 0 0 4px;
-	width: 1em;
+	text-align: center;
+	border-radius: 4px 4px 0px 0px;
 }
 
-.memory .weight {
-	float: right;	
-	margin-right: .5em;
+.memoryContainer .memory {
+	position: relative;
+	width: 300px;
+	height: 100px;
+	transform-style: preserve-3d;
+	transition: transform 1s;
+}
+
+.memory_side {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	backface-visibility: hidden;
+	text-align: center;
+	font-size: 20px;
+	cursor: pointer;
+	user-select: none;
+	padding-top: 1em;
+}
+
+.memory_front {
+	width: 100%;
+	background-color: #EEE;
+}
+
+.memory_back {
+	width: 100%;
+	transform: rotateY(179.9deg);
+	background-color: #EEE;
+}
+
+.memoryContainer .previous {
+	position: relative;
+}
+
+.memoryContainer .next {
+	position: relative;
+	left: 125px;
+}
+
+.memoryContainer .weight {
+	position: relative;
+	left: 55px;
 	display: inline-block;
 	font-size: x-small;
 	color: white;
+	cursor: pointer;
+	user-select: none;
 }
 
-.memory .weight .minus {
+.memoryContainer .weight .minus {
 	padding: 0.8em 0.7em 0 0.7em;
 	background-color: #607D8B;
 	line-height: 1em;
-	position: relative;
 	height: 1.5em;
 	border-radius: 10px 10px 10px 10px;
 	top: 1em;
 }
 
-.memory .weight .plus {
+.memoryContainer .weight .plus {
 	padding: 0.8em 0.7em 0 0.7em;
 	background-color: #607D8B;
 	line-height: 1em;
-	position: relative;
 	height: 1.5em;
 	border-radius: 10px 10px 10px 10px;
 	top: 1em;
 }
 
-.memory .weight .value {
+.memoryContainer .weight .value {
 	padding: 0.8em 0.7em 0 0.7em;
 	background-color: #607D8B;
 	line-height: 1em;
-	position: relative;
 	height: 1.5em;
 	border-radius: 10px 10px 10px 10px;
 	top: 1em;
