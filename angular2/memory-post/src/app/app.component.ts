@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, state, style, transition, animate } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Memory } from './memory';
 import { MemoryService } from './memory.service';
@@ -7,18 +7,6 @@ import { MemoryService } from './memory.service';
     selector: 'memory-post',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'], 
-    animations: [
-        trigger('flipState', [
-            state('back', style({
-                transform: 'rotateY(179.9deg)'
-            })),
-            state('front', style({
-                transform: 'rotateY(0)'
-            })),
-            transition('front => back', animate('300ms ease-out')),
-            transition('back => front', animate('300ms ease-in'))
-        ])  
-    ]
 })
 export class AppComponent implements OnInit {
     title = 'Memory post';
@@ -57,30 +45,20 @@ export class AppComponent implements OnInit {
         }
     }
 
-    onFlipComplete($event) {
-        this.currentMemory = this.memories[this.currentIndex];
-    }
-
     isFront(): boolean {
         return (this.currentState === 'front');
     }
 
     onNext(): void {
-        var isFlipCard = (this.currentState !== 'front');
         this.currentState = 'front';
-        this.currentIndex = (this.currentIndex === (this.memories.length - 1) ? this.currentIndex : this.currentIndex + 1);
-        if (isFlipCard === false) {
-            this.currentMemory = this.memories[this.currentIndex];
-        }
+        this.currentIndex = (this.currentIndex === (this.memories.length - 1) ? this.currentIndex : this.currentIndex + 1);    
+        this.currentMemory = this.memories[this.currentIndex];
     }
 
     onPrevious(): void {
-        var isFlipCard = (this.currentState !== 'front');
         this.currentState = 'front';
         this.currentIndex = (this.currentIndex === 0 ? 0 : this.currentIndex - 1);
-        if (isFlipCard === false) {
-            this.currentMemory = this.memories[this.currentIndex];
-        }
+        this.currentMemory = this.memories[this.currentIndex];
     }
 
     onWeightPlus(): void {
