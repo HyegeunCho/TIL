@@ -1,10 +1,10 @@
-import { MyAppPage } from './app.po';
+import { MemoryPostPage } from './app.po';
 
-describe('my-app App', () => {
-  let page: MyAppPage;
+describe('memory-post App', () => {
+  let page: MemoryPostPage;
 
   beforeEach(() => {
-    page = new MyAppPage();
+    page = new MemoryPostPage();
   });
 
   it('should display welcome message', () => {
