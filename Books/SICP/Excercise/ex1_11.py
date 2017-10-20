@@ -36,10 +36,78 @@ def byRecursiveWithMemo(n):
             print("Add key %d to memo: %d" % (n, memo[n]))
     return memo[n]
 
-print("RecursiveWithMemo Test by 1: " + str(byRecursiveWithMemo(1)))
-print("RecursiveWithMemo Test by 3: " + str(byRecursiveWithMemo(3)))
-print("RecursiveWithMemo Test by 10: " + str(byRecursiveWithMemo(10)))
-print("RecursiveWithMemo Test by 100: " + str(byRecursiveWithMemo(100)))
+#print("RecursiveWithMemo Test by 1: " + str(byRecursiveWithMemo(1)))
+#print("RecursiveWithMemo Test by 3: " + str(byRecursiveWithMemo(3)))
+#print("RecursiveWithMemo Test by 10: " + str(byRecursiveWithMemo(10)))
+#print("RecursiveWithMemo Test by 100: " + str(byRecursiveWithMemo(100)))
+#print("RecursiveWithMemo Test by 4: " + str(byRecursiveWithMemo(4)))
+
+class Calc:
+
+    multiOneCount = 0
+    multiTwoCount = 0
+    multiThreeCount = 0
+    calcValue = 0
+
+    def __init__(self, value, one, two, three):
+        self.multiOneCount = one
+        self.multiTwoCount = two
+        self.multiThreeCount = three
+        self.calcValue = value
+
+    def updateCalc(self):
+        if self.calcValue < 3:
+            return [Calc(self.calcValue, self.multiOneCount, self.multiTwoCount, self.multiThreeCount)];
+        else:
+            return [Calc(self.calcValue - 1, self.multiOneCount + 1, self.multiTwoCount, self.multiThreeCount)
+                    , Calc(self.calcValue - 2, self.multiOneCount, self.multiTwoCount + 1, self.multiThreeCount)
+                    , Calc(self.calcValue - 3, self.multiOneCount, self.multiTwoCount, self.multiThreeCount + 1)]
+
+    def calculate(self):
+
+        multiOne = (1 ** self.multiOneCount)
+        multiTwo = (2 ** self.multiTwoCount)
+        multiThree = (3 ** self.multiThreeCount)
+        result = multiOne * multiTwo * multiThree * self.calcValue
+        #print('(1 ** ' + str(self.multiOneCount) + ') * (2 ** ' + str(self.multiTwoCount) + ') * (3 ** ' + str(self.multiThreeCount) + ') * ' + str(self.calcValue) + ' = ' + str(result))
+        return result
+
+import copy
+def byIterative(n):
+    calcList = []
+    calcList.append(Calc(n, 0, 0, 0))
+
+    isBreak = False
+
+    while isBreak is False:
+        isBreak = True
+        nextAppendList = []
+        while len(calcList) > 0:
+            curCalc = calcList.pop(0)
+            if curCalc.calcValue >= 3:
+                isBreak = False
+            nextAppendList.extend(curCalc.updateCalc())
+
+        calcList = copy.deepcopy(nextAppendList)
+        nextAppendList = []
+
+    result = 0
+    while len(calcList) > 0:
+        curCalc = calcList.pop(0)
+        result += curCalc.calculate()
+
+    return result
+
+
+print("Iterative Test by 1: " + str(byIterative(1)))
+print("Iterative Test by 3: " + str(byIterative(3)))
+print("Iterative Test by 4: " + str(byIterative(4)))
+print("Iterative Test by 10: " + str(byIterative(10)))
+
+
+
+
+
 
 
 
