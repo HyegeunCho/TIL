@@ -1,0 +1,40 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<h1 class="title">{{title}}</h1>
+
+<!--div class='memories'>
+  <ul class="memories">
+    <li *ngFor='let memory of memories' (click)='onSelect(memory)'>
+      <span class="badge">{{memory.id}}</span>
+      <div *ngIf='isName[memory.id]; then nameBlock else meaningBlock'></div>
+      <ng-template #nameBlock>{{memory.name}}</ng-template>
+      <ng-template #meaningBlock>{{memory.meaning}}</ng-template>
+      <span class="weight">{{memory.weight}}</span>
+    </li>
+  </ul>
+</div-->
+
+<div *ngIf='currentMemory' class='memoryContainer'>
+    <span class='badge'>{{currentMemory.id}}</span>
+    <div *ngIf='isFront(); then frontBlock else backBlock'></div>
+    <ng-template #frontBlock>
+      <div class='memory' (click)='onFlip()'>{{currentMemory.front}}</div>
+    </ng-template>
+    <ng-template #backBlock>
+      <div class='memory' (click)='onFlip()'>{{currentMemory.back}}</div>
+    </ng-template>
+    
+    <div class='footer'>
+    <button class='previous' (click)='onPrevious()'>Previous</button>
+    <div class='weight'>
+      <span class='minus' (click)='onWeightMinus()'>-</span>
+      <span class='value'>{{currentMemory.weight}}</span>
+      <span class='plus' (click)='onWeightPlus()'>+</span>
+    </div>
+    <button class='next' (click)='onNext()'>Next</button>
+  </div>
+</div>
+
+
+  
+
+
