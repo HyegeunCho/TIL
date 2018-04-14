@@ -1,0 +1,61 @@
+# 모나드 소개
+
+역사적으로 모나드는 하스켈의 입출력을 처리하기 위해 도입
+
+파일 IO에서는 
+
+1. 미리 정의된 실행 순서가 보장되어야 하며
+2. 어떠한 타입의 데이터 요청이 있어도 안전하게 수행되어야 한다.
+
+순서가 있는 연산을 처리하는 데 사용하는 디자인 패턴
+
+함수형 프로그래밍의 규칙을 지키면서 다양한 타입의 값을 함수체이닝을 통해 단일한 인터페이스로 순서대로 처리하되, 그 처리 내용을 선언적으로 쉽게 볼 수 있도록 하기 위해 모나드 개념을 차용
+
+왜 모나드를 써야 하느냐면...
+Javascript에서 Promise를 쓰니까 편하더라 와 같은 이유라고 할 수 있겠다....
+
+다양한 타입을 동일한 인터페이스로 처리하기 위해 주어진 값을 Functor로 감싸 단일 타입으로 변경
+
+Functor에는 return 연산자와 bind (또는 map) 연산자가 있어야 함.
+
+return 연산자는 주어진 값 a를 Functor 타입 a로 변환해서 반환하는 기능
+
+Functor 타입의 데이터를 처리하다보면 
+Functor(Functor(a)) 와 같은 값이 생길 때가 있다.
+그럴 경우 Functor에서 얻은 값이 기대와 다른 동작을 일으킬 수 있다. 
+값을 받았다고 생각했지만 실제로는 Functor를 받았기 때문.
+
+그래서 Functor(Functor(a))를 Functor(b)로 변환해주는 flat연산자도 필요.
+
+
+```js
+function return(a) {
+    return Functor(a);
+}
+
+function bind(transform, a) {
+    return Functor(transform(a));
+}
+```
+
+모나드는 아래 3가지 정의로 표현할 수 있다.
+
+- 타입 생성자 M
+- return 함수
+- bind라고 부르는 >>= 연산자
+
+
+1. 값을 감싼 타입을 정의
+
+값을 감싼 타입을 만드는 이유는 
+1. 외부에 대해 값을 감춘다
+2. 정보를 추가한다.
+3. 추가적인 연산을 정의한다.
+
+
+
+# 참고자료
+
+- [스칼라 초중급자를 위한 모나드 강의](https://github.com/enshahar/BasicFPinScala/blob/master/Intermediate/Monad.md)
+- [모나드 괴담](https://xtendo.org/ko/monad#1)
+- [Javascript 모나드](https://www.haruair.com/blog/2986)
