@@ -1,5 +1,8 @@
 # RNN 개요
 
+RNN은 내부에 루프를 가진 네트워크이다.
+그 루프는 정보가 네트워크 내부에서 지속되게 만든다.
+
 RNN은 주로 다음과 같은 영역에서 사용된다.
 
 - 자연어 처리 (NLP)
@@ -66,6 +69,22 @@ tanh 함수는 쌍곡선탄젠트 함수로서 기본적인 형태는 sigmoid �
 
 따라서 Backpropagation Through Time (BPTT)라는 변형 알고리즘을 사용한다.
 
+# RNN의 문제
+
+## 장기 의존성 문제 (The Problem of Long-Term Dependencies)
+
+적절한 정보와 그 정보가 필요한 곳의 거리가 가까운 경우, 
+
+예를들어 "구름이 하늘에 떠 있다" 라는 문장에서 구름 다음에 하늘이라는 단어가 올 것이란 것을 예측하고자 할때, 
+
+구름이라는 문맥만으로 충분하다.
+
+하지만 거리가 멀어질 수록 RNN의 학습능력이 떨어진다.
+
+dependency를 더 long-term으로 가져갈수록 gradient 값이 시간에 따른 곱하기 형태가 되어 gradient growth가 exponential해지기 때문이다 (역시 위와 마찬가지로 나중에 더 자세하게 다루도록 하겠다
+
+LSTM을 통해 장기 의존성 문제를 해결할 수 있다.
+
 # RNN 확장
 
 ## Bidirectional RNN
@@ -91,8 +110,46 @@ bidirectional RNN과 유사하지만 layer가 더 깊다.
 
 ## LSTM Network
 
+![ltsm_overview.png](image/ltsm_overview.png)
+
+LSTM은 오랫동안 정보를 기억하고자 하는 네트워크이다. 
+
+LSTM은 일반적인 RNN과는 다르게 모듈 내부에 상호작용하는 네 개의 층이 추가로 존재한다.
+
+![LSTM3-chain.png](image/LSTM3-chain.png)
+![LSTM2-notation.png](image/LSTM2-notation.png)
+
+
+LSTM의 핵심은 다이어그램의 위쪽은 관통해 지나가는 셀 상태에 있다.
+
+셀 상태를 통해 정보는 전체 네트워크를 통과해 흘러갈 수 있다.
+
+LSTM은 게이트를 통해 셀 상태에 정보를 더하거나 지울 수 있다. 이 게이트는 시그모이드 신경망 층과 요소별 곱셈 연산으로 구성된다.
+
+LSTM 첫단계는 셀 상태에서 어떤 정보를 버릴지 결정하는 forget 게이트층이다. 
+여기서는 정보를 유지할 지, 제거할지를 결정한다.
+
+![LSTM3-focus-f.png](image/LSTM3-focus-f.png)
+![LSTM3-gate.png](image/LSTM3-gate.png)
+
+두번째 단계에서는 어떤 새로운 정보를 셀 상태에 저장할 지 결정한다. 이 단계는 두 부분으로 구성되는데, 
+첫번째 input 게이트 층에서는 어떤 값을 갱신할 지 결정한다. 두번째 tanh층에서는 셀 상태에 더해질 후보값들의 벡터를 만들고 두 값을 합쳐 셀 상태에 반영한다.
+
+![LSTM3-focus-i.png](image/LSTM3-focus-i.png)
+
+여기까지 여기까지 나온 값으로 셀 상태 값을 새로운 값으로 갱신한다.
+
+![LSTM3-focus-C.png](image/LSTM3-focus-C.png)
+
+마지막 단계에서는 무엇을 출력할지 결정한다.
+이 단계는 시그모이드 층으로 이루어져 셀 상태를 필터링 한다.
+
+![LSTM3-focus-o.png](image/LSTM3-focus-o.png)
 
 # 참고자료
 
 - [모두를 위한 머신러닝](https://hunkim.github.io/ml/)
 - [Team AI Korea 블로그 -  RNN 튜토리얼](https://aikorea.org/blog/rnn-tutorial-1/)
+- [RNN, LSTM 번역](http://whydsp.org/280)
+- [RNN, LSTM 위 번역의 원문](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+- [RNN 논문 리뷰](http://sanghyukchun.github.io/89/)
