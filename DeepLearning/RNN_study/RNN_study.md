@@ -43,7 +43,7 @@ RNN은 모든 스텝에 대해 동일한 파라미터 (U, V, W)를 사용한다.
 
 RNN은 다음과 같이 입력과 출력을 다양하게 만들 수 있다.
 
-![rnn_flexibility.jpg](image/rnn_flexibility.jpg)
+![rnn_flexibility.jpg](image/RNN_flexibility.jpg)
 
 ## Hidden State **St**
 
