@@ -19,7 +19,7 @@
 
 <script>
 import ToDoItem from './components/ToDoItem.vue'
-import Logo from './assets/logo.png'ToDoItem
+import Logo from './assets/logo.png'
 
 export default {
     name: 'to-do', 
@@ -51,13 +51,13 @@ export default {
                 return;
             }
 
-            const newId = Math.max.apply(null, this.list.map(t => to.id)) + 1
+            const newId = Math.max.apply(null, this.list.map(t => t.id)) + 1
             this.list.push({ id: newId, text: this.todo});
             this.todo = '';
         }, 
 
         onDeleteItem(todo) {
-            console.log('called', todo);
+            // console.log('called', todo);
             this.list = this.list.filter(item => item !== todo);
         }
     }
