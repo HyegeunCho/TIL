@@ -11,7 +11,7 @@
 최대한 어렵게 만들어 접근성을 낮추는 것이 목적
 
 
-## 리서치 플롯
+## 마일스톤
 
 1. IL2CPP 개요 확인 - 기대 효과
 2. IL2CPP로 빌드된 APK로부터 코드 추출 - 사내 프로젝트 활용
@@ -30,13 +30,12 @@
 
 ## IL2CPP DUMPER 사용
 
+1. [IL2CPP DUMPER](https://github.com/Perfare/Il2CppDumper/releases) 다운로드
 1. `Il2CppDumper.exe` 파일을 실행
 2. `lib/x86/libil2cpp.so` 파일 선택
 3. `assets/bin/Data/Managed/Metadata/global-metadata.dat` 선택
 4. `2.auto` 선택
-5. `DummyDll` 생성됨
-
-
+5. `DummyDll`과 `dump.css` 파일이 생성됨
 
 ## 관련 참고 문서
 
@@ -51,6 +50,7 @@
 - [dex2jar - 다운로드](https://github.com/pxb1988/dex2jar)
 - [jadx - 다운로드](https://github.com/skylot/jadx)
 - [IL2CPP DUMPER](https://github.com/Perfare/Il2CppDumper/releases)
+    - [IL2CPP DUMPER를 활용한 유니티 해킹](https://www.youtube.com/watch?amp=&v=BN5UCGP_5os)
 
 ### 에셋 번들 보호
 
