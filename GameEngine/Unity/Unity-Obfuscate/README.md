@@ -37,6 +37,15 @@
 4. `2.auto` 선택
 5. `DummyDll`과 `dump.css` 파일이 생성됨
 
+## Asset store 유니티 코드 난독화
+
+- [Obfuscator in assets store - 소개](https://www.beebyte.co.uk/)
+- [Obfuscator Pro](https://assetstore.unity.com/packages/tools/utilities/obfuscator-pro-89589)
+    - [Free 버전](https://assetstore.unity.com/packages/tools/utilities/obfuscator-free-89420)
+- [Obfuscator](https://assetstore.unity.com/packages/tools/utilities/obfuscator-48919)
+- [Obfuscator Base](https://assetstore.unity.com/packages/tools/utilities/obfuscator-base-87885)
+
+
 ## 관련 참고 문서
 
 ### 코드 난독화 
