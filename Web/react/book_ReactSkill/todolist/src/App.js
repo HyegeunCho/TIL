@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import MyComponent from './MyComponent';
+// import MyComponent from './MyComponent';
+import EventPractice from './EventPractice';
 
 
 class App extends Component {
+
   render() {
     return (
-      <MyComponent />
+      // <MyComponent age={35}/>
+      <EventPractice />
     );
     
     // return (
