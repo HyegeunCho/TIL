@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 // import MyComponent from './MyComponent';
-import EventPractice from './EventPractice';
+// import EventPractice from './EventPractice';
+import ValidationSample from './ValidationSample';
 
 
 class App extends Component {
@@ -10,7 +11,8 @@ class App extends Component {
   render() {
     return (
       // <MyComponent age={35}/>
-      <EventPractice />
+      // <EventPractice />
+      <ValidationSample />
     );
     
     // return (
