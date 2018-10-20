@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 // import MyComponent from './MyComponent';
 // import EventPractice from './EventPractice';
-import ValidationSample from './ValidationSample';
+// import ValidationSample from './ValidationSample';
+// import ScrollBox from './ScrollBox';
+import IterationSample from './IterationSample';
 
 
 class App extends Component {
@@ -12,7 +14,12 @@ class App extends Component {
     return (
       // <MyComponent age={35}/>
       // <EventPractice />
-      <ValidationSample />
+      // <ValidationSample />
+      // <div>
+      //   <ScrollBox ref={(ref)=>{this.scrollBox=ref}}/>
+      //   <button onClick={()=>this.scrollBox.scrollToBottom()}>맨 밑으로</button>
+      // </div>
+      <IterationSample /> 
     );
     
     // return (
