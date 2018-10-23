@@ -11,12 +11,14 @@ class TodoItem extends Component {
     render() {
         // 비구조화 할당을 통해 this.props 안에 있는 각 객체들의 레퍼런스 생성 
         const {done, children, onToggle, onRemove} = this.props;
-
         return (
             <div className={cx('todo-item')} onClick={onToggle}>
                 <input className={cx('tick')} type='checkbox' checked={done} readOnly/>
                 <div className={cx('text', {done})}>{children}</div>
-                <div className={cx('delete')} onClick={onRemove}>[지우기]</div>
+                <div className={cx('delete')} onClick={(e) => {
+                    onRemove();
+                    e.stopPropagation();
+                }}>[지우기]</div>
             </div>
         );
     }
