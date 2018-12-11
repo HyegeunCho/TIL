@@ -9,3 +9,4 @@
 ## 스터디 링크 모음
 
 - [Udemy 케라스 무료 강좌](https://www.udemy.com/keras-deep-learning/)
+- [추천 케라스 학습 블로그](https://machinelearningmastery.com/return-sequences-and-return-states-for-lstms-in-keras/?fbclid=IwAR1ovviPrQZrHhzhdUh_fnZFXu0PM2wBqa1O8dH6kDPfs4oQLews5bY7NnA)
