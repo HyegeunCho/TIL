@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 //import 'package:flutter_docs/UserInterface/BuildingLayouts/Steps.dart';
-import 'package:flutter_docs/UserInterface/AddingInteractivity/App.dart';
+//import 'package:flutter_docs/UserInterface/AddingInteractivity/App.dart';
+import 'package:flutter_docs/UserInterface/Animations/LogoApp.dart';
 
 //void main() => runApp(MyApp());
-void main() => runApp(TutorialApp());
+//void main() => runApp(TutorialApp());
+void main() => runApp(LogoApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
