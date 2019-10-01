@@ -29,7 +29,9 @@
 			//fixed4 c = tex2D(_MainTex, float2(IN.uv_MainTex.x + _Time.y, IN.uv_MainTex.y));
 			fixed4 c = tex2D(_MainTex, float2(IN.uv_MainTex.x, IN.uv_MainTex.y + _Time.y * _FlowSpeed));
 			fixed4 d = tex2D(_MainTex2, IN.uv_MainTex2);
-			o.Albedo = lerp(c.rgb, d.rgb, 1 - c.a);
+			//o.Albedo = lerp(c.rgb, d.rgb, 1 - c.a);
+			o.Albedo = lerp(c.rgb, d.rgb, _lerpTest - c.a);
+			// 0, 100 => 0.8 =? 80
 			o.Alpha = c.a;
 		}
 		ENDCG
