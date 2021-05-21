@@ -1,5 +1,5 @@
 ﻿using System;
-using List2;
+using Chapter2;
 
 namespace DDD_basic
 {
@@ -7,8 +7,8 @@ namespace DDD_basic
     {
         static void Main(string[] args)
         {
-            var valueInstance = new ValueInstance();
-            valueInstance.RunList2();
+            var valueInstance = new ValueObject();
+            valueInstance.RunList7();
         }
     }
 }
